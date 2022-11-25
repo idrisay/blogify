@@ -8,7 +8,7 @@ import {
 const Footer = () => {
   const date = new Date();
   return (
-    <div className="bg-gray-100 min-h-[10vh] flex justify-center flex-col">
+    <div className="bg-gray-100 min-h-[10vh] flex justify-center flex-col p-4">
       <div className="flex justify-around">
         <div>
           <AiFillInstagram size={32} />

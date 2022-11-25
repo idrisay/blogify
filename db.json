@@ -59,8 +59,77 @@
       "id": 10,
       "title": "optio molestias id quia eum",
       "body": "quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error"
+    },
+    {
+      "title": "test",
+      "body": "tes contest",
+      "userId": 1,
+      "id": 11
+    },
+    {
+      "title": "test",
+      "body": "tes contest",
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "title": "test",
+      "body": "tes contestsdads",
+      "userId": 1,
+      "id": 13
+    },
+    {
+      "title": "test",
+      "body": "tes contestsdads",
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "title": "test",
+      "body": "tes contestsdads",
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "title": "test",
+      "body": "tes contestsdads",
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "title": "asda",
+      "body": "sdasdasd",
+      "userId": 1,
+      "id": 17
+    },
+    {
+      "title": "asd",
+      "body": "asdasd",
+      "userId": 1,
+      "id": 18
+    },
+    {
+      "title": "idris",
+      "body": "content",
+      "userId": 1,
+      "id": 19
     }
   ],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" }
+  "users": [
+    {
+      "id": 1,
+      "name": "Yusuf",
+      "lastname": "ay",
+      "password": "12345678"
+    },
+    {
+      "id": 2,
+      "name": "Erdem",
+      "lastname": "ay",
+      "password": "12345678"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }
