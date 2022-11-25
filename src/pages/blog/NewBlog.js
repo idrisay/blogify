@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {toast } from 'react-toastify';
 
 const NewBlog = () => {
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
-  const [error, setError] = useState(false);
   const navigate = useNavigate();
+
+  const notify = (msg) => toast(msg);
 
   const handleAddBlog = () => {
     const data = { title: title, body: content, userId: 1 };
@@ -19,6 +21,9 @@ const NewBlog = () => {
     }).then((response) => {
       if (response.ok) {
         navigate("/blogs");
+        notify('Blog added successfully!')
+      }else{
+        notify('Something went wrong! Try again.')
       }
     });
   };
