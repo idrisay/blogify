@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {toast } from 'react-toastify';
+import { toast } from "react-toastify";
+import SunEditor from "suneditor-react";
 
 const NewBlog = () => {
   const [title, setTitle] = useState();
@@ -21,11 +22,15 @@ const NewBlog = () => {
     }).then((response) => {
       if (response.ok) {
         navigate("/blogs");
-        notify('Blog added successfully!')
-      }else{
-        notify('Something went wrong! Try again.')
+        notify("Blog added successfully!");
+      } else {
+        notify("Something went wrong! Try again.");
       }
     });
+  };
+
+  const handleChange = (editorContent) => {
+    setContent(editorContent)
   };
 
   return (
@@ -38,13 +43,37 @@ const NewBlog = () => {
           type="text"
           placeholder="Title"
         />
-        <textarea
+        {/* <textarea
           onChange={(e) => setContent(e.target.value)}
           rows={12}
           className="m-2  border-[1px] p-2"
           type="text"
           placeholder="Content"
           autoFocus
+        /> */}
+        <SunEditor
+          onChange={handleChange}
+          setOptions={{
+            height: 200,
+            buttonList: [
+     
+              ["formatBlock", "font","fontSize"],
+              [
+                "bold",
+                "underline",
+                "italic",
+                "strike",
+                "subscript",
+                "superscript",
+                "lineHeight",
+                'textStyle'
+              ],
+              ["align", "list", "italic"],
+              ["image"],
+            ],
+            // plugins: [font] set plugins, all plugins are set by default
+            // Other option
+          }}
         />
       </div>
       <button

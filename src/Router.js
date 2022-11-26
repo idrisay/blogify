@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import NewBlog from "./pages/blog/NewBlog";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import EditBlog from "./pages/blog/EditBlog";
 
 const Router = () => {
   return (
@@ -14,6 +15,7 @@ const Router = () => {
         <Route path="/about" element={<About />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/new-blog" element={<NewBlog />} />
+        <Route path="/blogs/edit/:id" element={<EditBlog />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
