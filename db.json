@@ -1,16 +1,22 @@
 {
-  "blogs": [],
+  "blogs": [
+    {
+      "title": "hvjhvnhvn",
+      "body": "<p>jbmbm<br></p><p><strong>hjbjhbhb. jhgjbhgjg</strong><br></p>",
+      "id": 1
+    }
+  ],
   "users": [
     {
       "id": 1,
-      "name": "Yusuf",
-      "lastname": "ay",
+      "fullname": "Yusuf",
+      "email": "yusuf@mail.com",
       "password": "12345678"
     },
     {
       "id": 2,
-      "name": "Erdem",
-      "lastname": "ay",
+      "fullname": "Erdem",
+      "email": "erdem@mail.com",
       "password": "12345678"
     }
   ],
