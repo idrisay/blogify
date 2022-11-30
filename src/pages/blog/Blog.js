@@ -4,6 +4,7 @@ import BlogCard from "../../components/BlogCard";
 import { BsJournalPlus } from "react-icons/bs";
 import notFoundBlog from '../../assets/notfoundblog.png'
 
+let currentUser = JSON.parse(localStorage.getItem("user"));
 let api_url = process.env.REACT_APP_API;
 
 const Blog = () => {
@@ -14,10 +15,11 @@ const Blog = () => {
   }, []);
 
   const getBlogs = () => {
-    fetch(`${api_url}blogs`)
+    fetch(`${api_url}blogs?authorId=${currentUser.id}`)
       .then((response) => response.json())
       .then((res) => {
         setBlogs(res);
+        console.log(res)
       });
   };
 
@@ -32,7 +34,7 @@ const Blog = () => {
           </Link>
         </div>
       </div>
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-col-1 gap-2 p-2">
+      <div className="p-4">
         {blogs.length == 0 ? 
         <div className="w-[100vw]" style={{}}>
           <img className="mx-auto w-[25%] flex" src={notFoundBlog} alt="" />

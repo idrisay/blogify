@@ -4,6 +4,7 @@ import SunEditor from "suneditor-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+let currentUser = JSON.parse(localStorage.getItem("user"));
 let api_url = process.env.REACT_APP_API;
 
 const EditBlog = () => {
@@ -33,7 +34,7 @@ const EditBlog = () => {
   };
 
   const handleEditBlog = () => {
-    let data = {title, body: content }
+    let data = {title, body: content, authorId: currentUser.id }
     if(title && content){
         fetch(`${api_url}blogs/${id}`, {
             method: "PUT",
@@ -83,7 +84,8 @@ const EditBlog = () => {
                 "superscript",
                 "lineHeight",
                 'textStyle',
-                'codeView'
+                'codeView',
+                "fontColor"
               ],
               ["align", "list", "italic"],
               ["image"],

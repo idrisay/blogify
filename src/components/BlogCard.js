@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 let api_url = process.env.REACT_APP_API;
+let currentUser = JSON.parse(localStorage.getItem('user'))
 
 const BlogCard = ({ blog, getBlogs }) => {
+  console.log("🚀 ~ file: BlogCard.js:10 ~ BlogCard ~ blog", blog)
   const [onMouseBlog, setonMouseBlog] = useState(false);
 
   const notify = (msg) => toast(msg);
@@ -24,13 +26,13 @@ const BlogCard = ({ blog, getBlogs }) => {
 
   return (
     <div
-      className="border-[1px] border-red-700 w-full p-4 relative"
+      className="border-[1px] border-red-300 p-4 relative rounded-md m-2"
       onMouseOver={() => setonMouseBlog(true)}
       onMouseOut={() => setonMouseBlog(false)}
     >
       <h2 className="text-xl first-letter:text-4xl">{blog.title}</h2>
       <div dangerouslySetInnerHTML={{ __html: blog.body }} />
-      {onMouseBlog && (
+      {onMouseBlog && blog.authorId === currentUser.id && (
         <div>
           <Link
             to={`/blogs/edit/${blog.id}`}

@@ -46,7 +46,8 @@ const Login = () => {
         notify('There is no account with this email address. Please Register.')
       }
       if(res[0].password === values.password){
-        navigate("/");
+        localStorage.setItem('user', JSON.stringify(res[0]))
+        window.location.href = "/";
         notify('Successfull login!')
       }else{
         notify('Please check your password!')

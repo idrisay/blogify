@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import SunEditor from "suneditor-react";
 
+let currentUser = JSON.parse(localStorage.getItem("user"));
+
 const NewBlog = () => {
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
@@ -12,7 +14,7 @@ const NewBlog = () => {
   const notify = (msg) => toast(msg);
 
   const handleAddBlog = () => {
-    const data = { title: title, body: content, userId: 1 };
+    const data = { title: title, body: content, authorId: currentUser.id };
     fetch("http://localhost:3000/blogs", {
       method: "POST",
       headers: {
@@ -66,7 +68,10 @@ const NewBlog = () => {
                 "subscript",
                 "superscript",
                 "lineHeight",
-                'textStyle'
+                'textStyle',
+                'codeView',
+                "fontColor",
+         
               ],
               ["align", "list", "italic"],
               ["image"],
