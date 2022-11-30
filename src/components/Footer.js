@@ -6,7 +6,7 @@ import {
 } from "react-icons/ai";
 
 const Footer = () => {
-  const date = new Date();
+
   return (
     <div className="bg-gray-100 min-h-[10vh] flex justify-center flex-col p-4">
       <div className="flex justify-around">
@@ -21,7 +21,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-xl text-center p-2">
-        Blogify Copyright { date.getFullYear() }
+        Blogify Copyright { new Date().getFullYear() }
       </div>
     </div>
   );
