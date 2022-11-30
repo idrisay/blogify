@@ -82,7 +82,8 @@ const EditBlog = () => {
                 "subscript",
                 "superscript",
                 "lineHeight",
-                'textStyle'
+                'textStyle',
+                'codeView'
               ],
               ["align", "list", "italic"],
               ["image"],
