@@ -11,13 +11,13 @@
       "id": 1,
       "fullname": "Yusuf",
       "email": "yusuf@mail.com",
-      "password": "12345678"
+      "password": "123asd123"
     },
     {
       "id": 2,
       "fullname": "Erdem",
       "email": "erdem@mail.com",
-      "password": "12345678"
+      "password": "123asd123"
     }
   ],
   "profile": {
