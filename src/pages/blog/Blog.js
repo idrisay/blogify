@@ -15,7 +15,7 @@ const Blog = () => {
   }, []);
 
   const getBlogs = () => {
-    fetch(`${api_url}blogs?authorId=${currentUser.id}`)
+    fetch(`${api_url}blogs?authorId=${currentUser?.id}`)
       .then((response) => response.json())
       .then((res) => {
         setBlogs(res);
