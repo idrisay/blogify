@@ -33,7 +33,8 @@ const Navbar = () => {
         >
           About
         </NavLink>
-        <NavLink
+        {currentUser && (
+          <NavLink
           className={({ isActive }) =>
             isActive ? "text-red-700 underline mx-1" : "text-blue-700 mx-1"
           }
@@ -41,6 +42,8 @@ const Navbar = () => {
         >
           Blogs
         </NavLink>
+        )}
+        
         {currentUser ? (
           <div onClick={handleLogout} className="text-blue-700 mx-1 inline cursor-pointer">Logout</div>
         ) : (

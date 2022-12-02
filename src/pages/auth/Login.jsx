@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 let api_url = process.env.REACT_APP_API;
 
@@ -98,6 +98,13 @@ const Login = () => {
           </Form>
         )}
       </Formik>
+      <p className="mt-4 flex justify-center">
+          Kayıt olmak için {" "}
+          <NavLink to={"/register"} className="mx-1 text-sky-600">
+          buraya
+          </NavLink>{" "} 
+          tıklayınız.
+      </p>
     </div>
   );
 };
