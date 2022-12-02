@@ -5,10 +5,9 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 let api_url = process.env.REACT_APP_API;
-let currentUser = JSON.parse(localStorage.getItem('user'))
+let currentUser = JSON.parse(localStorage.getItem("user"));
 
 const BlogCard = ({ blog, getBlogs }) => {
-  console.log("🚀 ~ file: BlogCard.js:10 ~ BlogCard ~ blog", blog)
   const [onMouseBlog, setonMouseBlog] = useState(false);
 
   const notify = (msg) => toast(msg);
@@ -19,8 +18,8 @@ const BlogCard = ({ blog, getBlogs }) => {
     })
       .then((res) => res.json()) // or res.json()
       .then((res) => {
-        getBlogs()
-        notify('Blog deleted successfully!')
+        getBlogs();
+        notify("Blog deleted successfully!");
       });
   };
 
@@ -32,7 +31,7 @@ const BlogCard = ({ blog, getBlogs }) => {
     >
       <h2 className="text-xl first-letter:text-4xl">{blog.title}</h2>
       <div dangerouslySetInnerHTML={{ __html: blog.body }} />
-      {onMouseBlog && blog.authorId === currentUser.id && (
+      {onMouseBlog && (
         <div>
           <Link
             to={`/blogs/edit/${blog.id}`}

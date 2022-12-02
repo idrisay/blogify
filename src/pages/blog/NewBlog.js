@@ -15,24 +15,36 @@ const NewBlog = () => {
 
   const handleAddBlog = () => {
     const data = { title: title, body: content, authorId: currentUser.id };
-    fetch("http://localhost:3000/blogs", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }).then((response) => {
-      if (response.ok) {
-        navigate("/blogs");
-        notify("Blog added successfully!");
-      } else {
-        notify("Something went wrong! Try again.");
-      }
-    });
+    let cleanText = content.replace(/<\/?[^>]+(>|$)/g, "");
+
+    if (!title) {
+      notify("The title cannot be left blank");
+    } else if (title.length < 3) {
+      notify("Ez an must be 3 characters");
+    } else if (!cleanText) {
+      notify("The body cannot be left blank");
+    } else if (cleanText.length < 4) {
+      notify("Ez an must be 4 characters");
+    } else {
+      fetch("http://localhost:3000/blogs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }).then((response) => {
+        if (response.ok) {
+          navigate("/blogs");
+          notify("Blog added successfully!");
+        } else {
+          notify("Something went wrong! Try again.");
+        }
+      });
+    }
   };
 
   const handleChange = (editorContent) => {
-    setContent(editorContent)
+    setContent(editorContent);
   };
 
   return (
@@ -58,8 +70,7 @@ const NewBlog = () => {
           setOptions={{
             height: 200,
             buttonList: [
-     
-              ["formatBlock", "font","fontSize"],
+              ["formatBlock", "font", "fontSize"],
               [
                 "bold",
                 "underline",
@@ -68,10 +79,9 @@ const NewBlog = () => {
                 "subscript",
                 "superscript",
                 "lineHeight",
-                'textStyle',
-                'codeView',
+                "textStyle",
+                "codeView",
                 "fontColor",
-         
               ],
               ["align", "list", "italic"],
               ["image"],

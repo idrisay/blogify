@@ -9,7 +9,7 @@ import EditBlog from "../pages/blog/EditBlog";
 import PrivateRouter from "./PrivateRouter";
 import OneBlog from "../pages/blog/OneBlog";
 
-let currentUser = JSON.parse(localStorage.getItem('user'))
+let currentUser = JSON.parse(localStorage.getItem("user"));
 
 const Router = () => {
   return (
@@ -34,7 +34,7 @@ const Router = () => {
             </PrivateRouter>
           }
         />
-          <Route
+        <Route
           path="/blogs/edit/:id"
           element={
             <PrivateRouter currentUser={currentUser}>
