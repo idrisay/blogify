@@ -1,5 +1,3 @@
-import React from "react";
-import Login from "../pages/auth/Login";
 import { Navigate } from "react-router-dom";
 
 const PrivateRouter = ({ children, currentUser }) => {
@@ -11,7 +9,6 @@ const PrivateRouter = ({ children, currentUser }) => {
       ) : (
         <div>
           <Navigate to="/login" />
-          {/* <Login /> */}
         </div>
       )}
     </div>
