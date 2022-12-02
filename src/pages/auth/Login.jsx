@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 let api_url = process.env.REACT_APP_API;
 
@@ -12,7 +12,10 @@ let validateSchema = yup.object().shape({
     .string()
     .required("No password provided.")
     .min(8, "Password is too short - should be 8 chars minimum.")
-    .matches(/^(?=.*[a-z])(?=.*[0-9])/, "Password should contain letters, numbers and speacial characters."),
+    .matches(
+      /^(?=.*[a-z])(?=.*[0-9])/,
+      "Password should contain letters, numbers and speacial characters."
+    ),
 });
 
 const Login = () => {
@@ -39,24 +42,28 @@ const Login = () => {
     // console.log("🚀 ~ file: Login.jsx:15 ~ handleSubmit ~ actions", actions);
     // console.log("🚀 ~ file: Login.jsx:15 ~ handleSubmit ~ values", values);
     fetch(`${api_url}users?email=${values.email}`)
-    .then((response) => response.json())
-    .then((res) => {
-      console.log(res)
-      if(res.length == 0){
-        notify('There is no account with this email address. Please Register.')
-      }
-      if(res[0].password === values.password){
-        localStorage.setItem('user', JSON.stringify(res[0]))
-        window.location.href = "/";
-        notify('Successfull login!')
-      }else{
-        notify('Please check your password!')
-      }
-    });
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res);
+        if (res.length == 0) {
+          notify(
+            "There is no account with this email address. Please Register."
+          );
+        }
+        if (res[0].password === values.password) {
+          localStorage.setItem("user", JSON.stringify(res[0]));
+          window.location.href = "/";
+          notify("Successfull login!");
+        } else {
+          notify("Please check your password!");
+        }
+      });
   };
   return (
     <div>
-      <h1>Login</h1>
+      <h1 className="flex justify-center text-2xl m-4 text-emerald-600">
+        Login
+      </h1>
 
       <Formik
         initialValues={{ email: "", password: "" }}
@@ -98,6 +105,13 @@ const Login = () => {
           </Form>
         )}
       </Formik>
+      <p className="mt-4 flex justify-center">
+        Kayıt olmak için{" "}
+        <NavLink to={"/register"} className=" mx-1 text-sky-600">
+          Buraya
+        </NavLink>{" "}
+        tıklayınız
+      </p>
     </div>
   );
 };
