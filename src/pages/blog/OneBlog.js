@@ -17,7 +17,6 @@ const OneBlog = () => {
 
   const getBlog = async () => {
     const { data } = await axios.get(`${api_url}blogs/${id}`);
-    console.log(data);
     setBlog(data);
   };
 

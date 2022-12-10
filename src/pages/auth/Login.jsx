@@ -39,12 +39,9 @@ const Login = () => {
   const notify = (msg) => toast(msg);
 
   const handleSubmit = (values, actions) => {
-    // console.log("🚀 ~ file: Login.jsx:15 ~ handleSubmit ~ actions", actions);
-    // console.log("🚀 ~ file: Login.jsx:15 ~ handleSubmit ~ values", values);
     fetch(`${api_url}users?email=${values.email}`)
       .then((response) => response.json())
       .then((res) => {
-        console.log(res);
         if (res.length == 0) {
           notify(
             "There is no account with this email address. Please Register."

@@ -23,7 +23,6 @@ const EditBlog = () => {
     fetch(`${api_url}blogs/${id}`)
       .then((response) => response.json())
       .then((res) => {
-        console.log(res);
         setTitle(res.title);
         setContent(res.body)
         // setBlogs(res);
